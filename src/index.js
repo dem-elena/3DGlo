@@ -1,5 +1,9 @@
 import timer from "./modules/timer"
-//import two from "./modules/two"
+import menu from "./modules/menu"
+import modal from "./modules/modal"
+import validate from "./modules/validate"
 
 timer("28 february 2022")
-//two()
+menu()
+modal()
+validate()
