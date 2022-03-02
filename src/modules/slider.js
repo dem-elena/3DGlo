@@ -27,7 +27,6 @@ const slider = () => {
       elems[index].classList.add(strClass);
     };
     /////Функция для автоматического переключения слайдов
-  
     const autoSlide = () => {
       prevSlide(slides, currentSlide, "portfolio-item-active");
       prevSlide(dots, currentSlide, "dot-active");
@@ -97,5 +96,5 @@ const slider = () => {
     sliderDots();
     startSlide(timeInterval);
   };
- // slider();
+
   export default slider  
