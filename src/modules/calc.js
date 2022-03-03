@@ -1,3 +1,4 @@
+import { animate } from './helpers'
 const calc = (price = 100) => {
     const calcBlock = document.querySelector(".calc-block");
     const calcType = document.querySelector(".calc-type");
@@ -27,7 +28,20 @@ const calc = (price = 100) => {
       } else {
         totalValue = 0;
       }
-      total.textContent = totalValue;
+      // total.textContent = totalValue;
+      if (total.textContent !== totalValue){ 
+        animate({
+        duration: 4000,
+        timing(timeFraction) {
+          return timeFraction;
+        },
+        draw(progress) {
+          total.textContent = +total.textContent+Math.floor(progress * (totalValue-total.textContent)) ;
+        }
+      });}
+     
+        //total.textContent = totalValue;
+
     };
     calcBlock.addEventListener("change", (e) => {
       if (
@@ -39,6 +53,7 @@ const calc = (price = 100) => {
         countCalc();
       }
     });
+    
   };
   export default  calc;
   
