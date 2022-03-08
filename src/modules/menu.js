@@ -16,11 +16,16 @@ const menu = () => {
           
             //menu.classList.toggle("active-menu");
       } else {
-        if (!menu.style.transform) {
+        if (rez){       
+           if (!menu.style.transform) {
           menu.style.transform = "translateX(0)";
         } else {
           menu.style.transform = "";
         }
+      }else {menu.classList.remove("active-menu");
+      menu.style.transform = "";
+    }
+
       }
     };
   

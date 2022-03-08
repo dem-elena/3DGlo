@@ -31,7 +31,7 @@ const calc = (price = 100) => {
       // total.textContent = totalValue;
       if (total.textContent !== totalValue){ 
         animate({
-        duration: 4000,
+        duration: 28000,
         timing(timeFraction) {
           return timeFraction;
         },

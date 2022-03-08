@@ -12,25 +12,38 @@ const validate = () => {
     return str;
   };
   inputMessage.addEventListener("input", (e) => {
+    e.target.classList.remove('success')
     let reg = /[^а-яА-Я\s\-]/g;
     e.target.value = e.target.value.replace(reg, "");
   });
   inputMessage.addEventListener("blur", (e) => {
     e.target.value = spaceDel(e.target.value);
+    if (e.target.value)
+          {e.target.classList.add('success')}
   });
 
   ///////////Для валидации телефонов
   InputPhone.forEach((input) => {
     input.addEventListener("input", (e) => {
+      e.target.classList.remove('success')
       let reg = /[^\d\(\-\)]+$/g;
       e.target.value = e.target.value.replace(reg, "");
     });
+    
+    input.addEventListener("blur", (e) => {
+      
+      if (e.target.value)
+        {e.target.classList.add('success')}
+    })
+
   });
 
   inputText.forEach((input) => {
     if (!input.classList.contains("calc-item")) {
+      
       let reg = /[^а-яА-Я\s\-]/g;
       input.addEventListener("input", (e) => {
+        e.target.classList.remove('success')
         e.target.value = e.target.value.replace(reg, "");
       });
       input.addEventListener("blur", (e) => {
@@ -40,19 +53,37 @@ const validate = () => {
         e.target.value = e.target.value.replace(reg, (str) => {
           return str.toUpperCase();
         });
-      });
+        
+        if (e.target.value)
+        
+          {e.target.classList.add('success')}
+      }
+      );
     } else if (input.classList.contains("calc-item")) {
       input.addEventListener("input", (event) => {
+        e.target.classList.remove('success')
         event.target.value = event.target.value.replace(/\D+/, "");
       });
+      input.addEventListener("blur", (event) => {
+        if (e.target.value)
+          {e.target.classList.add('success')}
+      })
+
+
+
     }
   });
 
   inputMail.forEach((input) => {
     input.addEventListener("input", (e) => {
+      e.target.classList.remove('success')
       let reg = /[^a-zA-Z\d\-\.\_\!\~\*\'\@]/g;
       e.target.value = e.target.value.replace(reg, "");
     });
+    input.addEventListener("blur", (e) => {
+      if (e.target.value)
+        {e.target.classList.add('success')}
+    })
   });
 };
 validate();
