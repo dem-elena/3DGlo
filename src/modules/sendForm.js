@@ -1,3 +1,4 @@
+
 const sendForm=({formId, someElem=[]})=>{
     
     const form=document.getElementById(formId)
@@ -32,8 +33,11 @@ const sendForm=({formId, someElem=[]})=>{
         const formData=new FormData(form)
         const formBody={}
 
-
+        if (formId=="form3"){
+            statusBlock.style.color="white"
+        }
         statusBlock.textContent=loadText
+        window.setTimeout(()=>{statusBlock.remove()},3000)
         form.append(statusBlock)
         formData.forEach((val,key)=>{
             formBody[key]=val
@@ -58,6 +62,7 @@ const sendForm=({formId, someElem=[]})=>{
             })
             .catch(error=>{
                 statusBlock.textContent=errorText
+                window.setTimeout(()=>{statusBlock.remove()},3000)
             })
         }else {
                 statusBlock.textContent='не корректно заполнены поля'

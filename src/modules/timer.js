@@ -4,8 +4,12 @@ const timer = (deadline) => {
   const timerSeconds = document.getElementById("timer-seconds");
   const timerDays = document.createElement("span");
   timerDays.textContent = "00";
+  timerDays.style.marginRight="15px"
   const timerDottes = document.createElement("span");
+
+  console.dir(timerDottes)
   timerDottes.textContent = ":";
+  timerDottes.style.marginRight="15px"
 
   timerHours.insertAdjacentElement("beforebegin", timerDottes);
   timerDottes.insertAdjacentElement("beforebegin", timerDays);
@@ -14,6 +18,7 @@ const timer = (deadline) => {
     let dateStop = new Date(deadline).getTime();
     let dateNow = new Date().getTime();
     let timeRemaining = (dateStop - dateNow) / 1000;
+
     let days = Math.floor(timeRemaining / 3600 / 24);
     let hours = Math.floor((timeRemaining / 3600) % 24);
     let minutes = Math.floor((timeRemaining / 60) % 60);
