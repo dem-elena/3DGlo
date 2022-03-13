@@ -25,13 +25,13 @@ const modal=()=>{
         if (widthDoc > 768) {
          // idInterval = requestAnimationFrame(movePopup);
          animate({
-          duration: 2000,
+          duration: 500,
           timing(timeFraction) {
-            return 1 - Math.sin(Math.acos(timeFraction));
+            return (timeFraction);
           },
           draw(progress) {
             
-            modalContent.style.left = progress * 40 + "%";
+            modalContent.style.left = progress * 30 + "%";
           }
         });
         }

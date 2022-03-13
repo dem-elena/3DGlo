@@ -38,7 +38,7 @@ sendForm(
     ]
     }
     )
-    sendForm(
+sendForm(
         {
         formId: "form2", 
         someElem: [

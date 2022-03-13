@@ -34,12 +34,13 @@ const menu = () => {
       if (e.target.closest(".menu")) {
         handleMenu(true);
       } else if (
-        e.target.classList.contains("close-btn") ||
-        !e.target.closest(".active-menu") ||
-        e.target.matches(".active-menu>ul>li>a")
-      ) {
+        e.target.classList.contains("close-btn") 
+      ) {e.preventDefault()
         handleMenu(false);
       }
+      else if (!e.target.closest(".active-menu") ||  
+      e.target.matches(".active-menu>ul>li>a"))
+      { handleMenu(false);}
     });
   };
 export default menu

@@ -43,6 +43,7 @@ const validate = () => {
       
       let reg = /[^а-яА-Я\s\-]/g;
       input.addEventListener("input", (e) => {
+        
         e.target.classList.remove('success')
         e.target.value = e.target.value.replace(reg, "");
       });
@@ -54,17 +55,17 @@ const validate = () => {
           return str.toUpperCase();
         });
         
-        if (e.target.value)
+        if (e.target.value && e.target.value.length>=2)
         
           {e.target.classList.add('success')}
       }
       );
     } else if (input.classList.contains("calc-item")) {
-      input.addEventListener("input", (event) => {
+      input.addEventListener("input", (e) => {
         e.target.classList.remove('success')
-        event.target.value = event.target.value.replace(/\D+/, "");
+        e.target.value = e.target.value.replace(/\D+/, "");
       });
-      input.addEventListener("blur", (event) => {
+      input.addEventListener("blur", (e) => {
         if (e.target.value)
           {e.target.classList.add('success')}
       })

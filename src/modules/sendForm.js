@@ -1,6 +1,6 @@
 
 const sendForm=({formId, someElem=[]})=>{
-    
+   
     const form=document.getElementById(formId)
     
     const statusBlock=document.createElement('div')
@@ -73,12 +73,13 @@ const sendForm=({formId, someElem=[]})=>{
     }
 
     try {
+        console.log(form)
         if (!form){
             throw new Error('Верните форму на место!')
         }
         form.addEventListener('submit',(e)=>{
             e.preventDefault() 
-            
+            console.log('111')
             submitForm()
            
            
