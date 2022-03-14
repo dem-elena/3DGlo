@@ -9,8 +9,7 @@ const calc = (price = 100) => {
     const countCalc = () => {
       const calcTypeValue = +calcType.options[calcType.selectedIndex].value;
       const calcSquareValue = calcSquare.value;
-      
-      console.log(calcTypeValue,calcSquareValue)
+    
       let totalValue = 0;
       let calcCountValue = 1;
       let calcDayValue = 1;
@@ -32,12 +31,12 @@ const calc = (price = 100) => {
       // total.textContent = totalValue;
       if (total.textContent !== totalValue){ 
         animate({
-        duration: 2000,
+        duration: 1000,
         timing(timeFraction) {
           return timeFraction;
         },
         draw(progress) {
-          total.textContent = +total.textContent+Math.floor(progress * (totalValue-total.textContent)) ;
+          total.textContent = +total.textContent+Math.round(progress * (totalValue-total.textContent)) ;
         }
       });}
      
@@ -50,7 +49,7 @@ const calc = (price = 100) => {
         e.target === calcCount ||
         e.target === calcDay
       ) {
-        console.log("calc_t")
+        
         countCalc();
       }
     });

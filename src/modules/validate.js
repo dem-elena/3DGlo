@@ -31,8 +31,10 @@ const validate = () => {
     });
     
     input.addEventListener("blur", (e) => {
-      
-      if (e.target.value)
+      let reg = /[\d\-]{5,15}$/;
+      let rezTest=reg.test(e.target.value)
+      //console.log(rezTest)
+      if (e.target.value && rezTest)
         {e.target.classList.add('success')}
     })
 
